@@ -16,6 +16,8 @@ TelloController myTelloController = myTello.getController();
 myTelloController.takeoff();
 myTelloController.rotate(90);
 myTelloController.land();
+
+myTello.shutdownGracefully();
 ```
 
 ## Contributing
