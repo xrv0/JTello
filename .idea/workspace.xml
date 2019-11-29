@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f8843d2-27ac-4b81-abf3-427e1e31093f" name="Default Changelist" comment="" />
+    <list default="true" id="0f8843d2-27ac-4b81-abf3-427e1e31093f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/JTello.java" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,7 +14,7 @@
     <favorites_list name="JTello" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/JTello" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1UIaZh10T8M30pLU02TLS5QN2Vn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -63,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1575046620279</updated>
       <workItem from="1575046623813" duration="3304000" />
-      <workItem from="1575053974812" duration="1140000" />
+      <workItem from="1575053974812" duration="1738000" />
     </task>
     <servers />
   </component>
