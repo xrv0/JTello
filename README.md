@@ -26,4 +26,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## License
+You are free to use this software for any use. Commercial or non commercial.
 [GNU GPL3](https://www.gnu.org/licenses/gpl-3.0.de.html)
