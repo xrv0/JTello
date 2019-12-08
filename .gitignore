@@ -23,6 +23,10 @@
 hs_err_pid*
 out/production/Tello/META-INF/Tello.kotlin_module
 
+# Out dir (Intellij)
 out/*
 out/
+.idea/
+# Mac OS X
 .DS_Store
+
