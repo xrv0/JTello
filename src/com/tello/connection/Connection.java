@@ -46,7 +46,7 @@ public class Connection {
 
     public String sendAndReceiveCommand(String command) {
         this.sendCommand(command);
-        return this.receiveMessage(command.getBytes().length).replace(" ", "");
+        return this.receiveMessage();
     }
 
     public boolean confirmationCommand(String command) {
