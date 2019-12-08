@@ -1,6 +1,6 @@
 # JTello
 
-A lightweight and simple to use java library for communicating and controlling a [DJI Tello Drone](https://store.dji.com/de/product/tello)
+A lightweight and simple to use java library for communicating and controlling the [DJI Tello Drone](https://store.dji.com/de/product/tello)
 
 ## Installation
 
