@@ -25,3 +25,4 @@ out/production/Tello/META-INF/Tello.kotlin_module
 
 out/*
 out/
+.DS_Store
