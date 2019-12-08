@@ -4,7 +4,7 @@ A lightweight and simple to use java library for communicating and controlling t
 
 ## Installation
 
-Download the library and include it in your project.
+[Download](https://github.com/xrv0/JTello/releases/download/0.2/JTello_0.2.jar) the library and include it in your project.
 
 
 ## Usage
