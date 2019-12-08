@@ -7,9 +7,9 @@ import com.tello.connection.Connection;
  */
 public class TelloController extends Connection {
     public static final String host = "192.168.10.1";
-    public static final short port = 8889;
+    public static final int port = 8889;
 
-    public TelloController() {
+    public TelloController(String host, int port) {
         super(host, port);
     }
 

@@ -8,11 +8,11 @@ import java.util.Arrays;
 
 public class Connection {
     private final String host;
-    private final short port;
+    private final int port;
     private InetAddress address;
     private DatagramSocket socket;
 
-    public Connection(String host, short port) {
+    public Connection(String host, int port) {
         this.host = host;
         this.port = port;
 
