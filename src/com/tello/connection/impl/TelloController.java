@@ -2,23 +2,21 @@ package com.tello.connection.impl;
 
 import com.tello.connection.Connection;
 
-/**
- * Sends and receives data
- */
-public class TelloController extends Connection {
+public class TelloController2 extends Connection {
     public static final String host = "192.168.10.1";
     public static final int port = 8889;
 
-    public TelloController(String host, int port) {
+    public TelloController2() {
         super(host, port);
+        this.enterSDKMode();
     }
 
     /**
      * entry SDK mode
      * @return was successful
      */
-    public boolean enterSDKMode() {
-        return super.confirmationCommand("command");
+    public void enterSDKMode() {
+        super.sendCommand("command");
     }
 
     /**
@@ -111,7 +109,7 @@ public class TelloController extends Connection {
      * @param cm distance in cm 20-500
      * @return was successful
      */
-    public boolean flyBackward(short cm) {
+    public boolean flyBackward(int cm) {
         return super.confirmationCommand("back " + cm);
     }
 
@@ -157,6 +155,8 @@ public class TelloController extends Connection {
     }
 
     public int getBattery() {
+        String response = super.sendAndReceiveCommand("battery?");
+        System.out.println(response);
         return 0;
     }
 }

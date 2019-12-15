@@ -1,49 +1,27 @@
 package com.tello;
 
-import com.tello.connection.impl.TelloController;
-import com.tello.logger.Logger;
+import com.tello.connection.impl.TelloCamServer;
+import com.tello.connection.impl.TelloController2;
+import com.tello.connection.impl.TelloStatusServer;
 
-public class Tello {
-    public static final String TELLO_HOSTNAME = "192.168.10.1";
-    public static final int TELLO_PORT = 8889;
+public class Tello2 {
+    private TelloController2 controller;
+    private TelloStatusServer statusListener;
+    private TelloCamServer camListener;
 
-    private TelloController controller;
-
-    public Tello() {
-        if(isReachable()) {
-            this.controller = new TelloController(TELLO_HOSTNAME, TELLO_PORT);
-            this.controller.enterSDKMode();
-        }else {
-            Logger.INSTANCE.error("Tello is not reachable or took too long to respond(3000)");
-        }
+    public Tello2() {
+        this.statusListener = new TelloStatusServer();
+        this.camListener = new TelloCamServer();
+        this.controller = new TelloController2();
     }
 
-    /**
-     * This needs to be called when exiting
-     * Closes the UDP Connection
-     */
-    public void exit() {
+    public void shutdownGracefully() {
         this.controller.close();
+        this.statusListener.close();
+        this.camListener.close();
     }
 
-    /**
-     * @return Tello Controller instance
-     */
-    public TelloController getController() {
+    public TelloController2 getController() {
         return this.controller;
-    }
-
-    private boolean isReachable() {
-        return true;
-        /*
-        try {
-            InetAddress address = InetAddress.getByName("192.168.1.103");
-            return address.isReachable(3000);
-        } catch (UnknownHostException e) {
-            Logger.INSTANCE.error("An error occured when checking the reachability ", e);
-        } catch (IOException e) {
-            Logger.INSTANCE.error("Unknown host", e);
-        }
-        return false;*/
     }
 }
