@@ -16,8 +16,8 @@ public class Logger {
     public static final Logger INSTANCE = new Logger(true);
 
     private static final String WARNING_PREFIX = "[Warning] ";
-    private static final String ERROR_PREFIX = "[Warning] ";
-    private static final String INFORMATION_PREFIX = "[Warning] ";
+    private static final String ERROR_PREFIX = "[Error] ";
+    private static final String INFORMATION_PREFIX = "[Info] ";
     private static final String DEBUG_PREFIX = "[Debug] ";
 
     private final boolean debug; // Should debug messages be printed

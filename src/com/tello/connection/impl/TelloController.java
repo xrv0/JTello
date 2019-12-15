@@ -2,11 +2,14 @@ package com.tello.connection.impl;
 
 import com.tello.connection.Connection;
 
-public class TelloSendResponseConnection extends Connection {
+/**
+ * Sends and receives data
+ */
+public class TelloController extends Connection {
     public static final String host = "192.168.10.1";
-    public static final short port = 8889;
+    public static final int port = 8889;
 
-    public TelloSendResponseConnection() {
+    public TelloController(String host, int port) {
         super(host, port);
     }
 

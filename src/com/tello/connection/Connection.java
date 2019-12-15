@@ -3,14 +3,16 @@ package com.tello.connection;
 import com.tello.logger.Logger;
 import java.io.IOException;
 import java.net.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 public class Connection {
     private final String host;
-    private final short port;
+    private final int port;
     private InetAddress address;
     private DatagramSocket socket;
 
-    public Connection(String host, short port) {
+    public Connection(String host, int port) {
         this.host = host;
         this.port = port;
 
@@ -44,7 +46,7 @@ public class Connection {
 
     public String sendAndReceiveCommand(String command) {
         this.sendCommand(command);
-        return this.receiveMessage(command.getBytes().length).replace(" ", "");
+        return this.receiveMessage();
     }
 
     public boolean confirmationCommand(String command) {
@@ -63,6 +65,7 @@ public class Connection {
                     final byte[] data = command.getBytes();
                     final DatagramPacket packet = new DatagramPacket(data, data.length, address, port);
                     try {
+                        Logger.INSTANCE.information("Sending tello command: " + command);
                         socket.send(packet);
                     } catch (IOException e) {
                         Logger.INSTANCE.error("Error when sending packet" + host + ":" + port, e);
@@ -79,20 +82,24 @@ public class Connection {
     }
 
     public String receiveMessage() {
-        return this.receiveMessage(1518);
+        return this.receiveMessage(1024);
     }
 
     public String receiveMessage(int length) {
-        byte[] data = new byte[length];
-        final DatagramPacket packet = new DatagramPacket(data, data.length);
+        byte[] receiveData = new byte[1024];
+        final DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
         try {
-            socket.receive(packet);
-            final String ret = new String(packet.getData());
-            System.out.println(ret);
-            return ret;
+            Logger.INSTANCE.information("Waiting for response... Length: " + length);
+            socket.receive(receivePacket);
+            return trimExecutionResponse(receiveData, receivePacket);
         } catch (IOException e) {
             Logger.INSTANCE.error("Error when receiving packet" + host + ":" + port, e);
         }
         return null;
+    }
+
+    private String trimExecutionResponse(byte[] response, DatagramPacket receivePacket) {
+        response = Arrays.copyOf(response, receivePacket.getLength());
+        return new String(response, StandardCharsets.UTF_8);
     }
 }
