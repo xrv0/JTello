@@ -2,11 +2,11 @@ package com.tello.connection.impl;
 
 import com.tello.connection.Connection;
 
-public class TelloController2 extends Connection {
+public class TelloController extends Connection {
     public static final String host = "192.168.10.1";
     public static final int port = 8889;
 
-    public TelloController2() {
+    public TelloController() {
         super(host, port);
         this.enterSDKMode();
     }

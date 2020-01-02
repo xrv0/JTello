@@ -1,18 +1,18 @@
 package com.tello;
 
 import com.tello.connection.impl.TelloCamServer;
-import com.tello.connection.impl.TelloController2;
+import com.tello.connection.impl.TelloController;
 import com.tello.connection.impl.TelloStatusServer;
 
-public class Tello2 {
-    private TelloController2 controller;
+public class Tello {
+    private TelloController controller;
     private TelloStatusServer statusListener;
     private TelloCamServer camListener;
 
-    public Tello2() {
+    public Tello() {
         this.statusListener = new TelloStatusServer();
         this.camListener = new TelloCamServer();
-        this.controller = new TelloController2();
+        this.controller = new TelloController();
     }
 
     public void shutdownGracefully() {
@@ -21,7 +21,7 @@ public class Tello2 {
         this.camListener.close();
     }
 
-    public TelloController2 getController() {
+    public TelloController getController() {
         return this.controller;
     }
 }

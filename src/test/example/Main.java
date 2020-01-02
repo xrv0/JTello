@@ -12,6 +12,6 @@ public class Main {
         System.out.println(myTelloController.getBattery());
         Thread.sleep(1000);
         myTelloController.land();
-        myTello.exit();
+        myTello.shutdownGracefully();
     }
 }
